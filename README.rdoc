@@ -7,6 +7,8 @@ provides support for parsing these URIs using the normal URI.parse method.
 
 == Usage
 
+ require 'data_uri'
+
  uri = URI.parse('data:image/gif;base64,...')
  uri.content_type # 'image/gif
  uri.data # Base64 decoded data
