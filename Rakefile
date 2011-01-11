@@ -4,3 +4,7 @@ task :build do
 end
 
 task :default => :test
+
+task :test do
+  system "ruby -Ilib test/test_*.rb"
+end
