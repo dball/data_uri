@@ -3,18 +3,16 @@ module URI
   class Data < Generic
 
     COMPONENT = [:scheme, :opaque].freeze
+    MIME_TYPE_RE = %r{^([-\w.+]+/[-\w.+]*)}.freeze
 
     attr_reader :content_type, :data
 
     def initialize(*args)
       super(*args)
       @data = @opaque
-      if md = MIME::Type::MEDIA_TYPE_RE.match(@data)
-        offset = md.offset(0)
-        if offset[0] == 0
-          @content_type = md[0]
-          @data = @data[offset[1] .. -1]
-        end
+      if MIME_TYPE_RE.match(@data)
+        @content_type = $1
+        @data = @data[@content_type.length .. -1]
       end
       @content_type ||= 'text/plain'
       if base64 = /^;base64/.match(@data)
