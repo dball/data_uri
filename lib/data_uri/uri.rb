@@ -33,6 +33,23 @@ module URI
         @data.force_encoding(charset)
       end
     end
+
+    def self.build(arg)
+      data = nil
+      content_type = nil
+      case arg
+        when IO
+          data = arg
+        when Hash
+          data = arg[:data]
+          content_type = arg[:content_type]
+      end
+      raise 'Invalid build argument: ' + arg.inspect unless data
+      if !content_type && data.respond_to?(:content_type)
+        content_type = data.content_type
+      end
+      new('data', nil, nil, nil, nil, nil, "#{content_type};base64,#{Base64.encode64(data.read).chop}", nil, nil)
+    end
   end
 
   @@schemes['DATA'] = Data
