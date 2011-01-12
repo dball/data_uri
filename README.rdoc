@@ -19,7 +19,8 @@ a line.
 
 Data URIs can play nicely with open-uri:
 
- require 'data_uri/openuri'
+ require 'open-uri'
+ require 'data_uri/open_uri'
 
  open(uri) do |io|
    io.content_type # image/gif
