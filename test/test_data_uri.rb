@@ -1,4 +1,5 @@
 require 'data_uri'
+require 'minitest/spec'
 require 'minitest/autorun'
 
 describe URI::Data do

@@ -1,6 +1,7 @@
 require 'data_uri'
 require 'open-uri'
 require 'data_uri/open_uri'
+require 'minitest/spec'
 require 'minitest/autorun'
 
 describe URI::Data do
