@@ -13,7 +13,7 @@ a line.
 
  require 'data_uri'
 
- uri = URI.parse('data:image/gif;base64,...')
+ uri = URI::Data.new('data:image/gif;base64,...')
  uri.content_type # image/gif
  uri.data # Base64 decoded data
 
@@ -31,6 +31,10 @@ There is no support for creating data URI strings, but it would be trivial to
 add if anyone's interested.
 
 == Features & Limitations
+
+URI.parse knows about URI::Data, but unfortunately, its regexp for splitting
+URIs into components maxes out at 92 characters for an opaque URI, which is
+far too small to be useful for data URIs.
 
 It accepts URIs with charset MIME parameters:
 

@@ -9,7 +9,16 @@ module URI
     attr_reader :content_type, :data
 
     def initialize(*args)
-      super(*args)
+      if args.length == 1
+        uri = args.first.to_s
+        unless uri.match(/^data:/)
+          raise 'Invalid Data URI: ' + args.first.inspect
+        end
+        @scheme = 'data'
+        @opaque = uri[5 .. -1]
+      else
+        super(*args)
+      end
       @data = @opaque
       if md = MIME_TYPE_RE.match(@data)
         @content_type = md[1]

@@ -68,6 +68,25 @@ describe URI::Data do
   
     end
 
+    describe "a big data binary data URI" do
+    
+      before do
+        @data = Array.new(100000) { rand(256) }.pack('c*')
+        @raw = "data:application/octet-stream;base64,#{Base64.encode64(@data).chop}"
+      end
+
+      it "shouldn't be parsed by URI.parse because the ABS_URI regexp is silly" do
+        uri = URI.parse(@raw)
+        assert uri.data != @data
+      end
+
+      it "should be parsed by URI::Data.new" do
+        uri = URI::Data.new(@raw)
+        assert uri.data == @data
+      end
+
+    end
+
   end
 
   describe "building" do
