@@ -12,7 +12,7 @@ module URI
       if args.length == 1
         uri = args.first.to_s
         unless uri.match(/^data:/)
-          raise 'Invalid Data URI: ' + args.first.inspect
+          raise URI::InvalidURIError.new('Invalid Data URI: ' + args.first.inspect)
         end
         @scheme = 'data'
         @opaque = uri[5 .. -1]
@@ -34,7 +34,7 @@ module URI
         @data = @data[7 .. -1]
       end
       unless /^,/.match(@data)
-        raise 'Invalid data URI'
+        raise URI::InvalidURIError.new('Invalid data URI')
       end
       @data = @data[1 .. -1]
       @data = base64 ? Base64.decode64(@data) : URI.decode(@data)
