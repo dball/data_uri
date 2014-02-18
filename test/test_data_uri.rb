@@ -1,6 +1,6 @@
 require 'data_uri'
-require 'minitest/spec'
 require 'minitest/autorun'
+require 'minitest/spec'
 
 describe URI::Data do
 
@@ -75,14 +75,18 @@ describe URI::Data do
         @raw = "data:application/octet-stream;base64,#{Base64.encode64(@data).chop}"
       end
 
-      it "shouldn't be parsed by URI.parse because the ABS_URI regexp is silly" do
-        uri = URI.parse(@raw)
-        assert uri.data != @data
+      it "isn't parsed by URI.parse" do
+        if RUBY_VERSION == "1.8.7"
+          uri = URI.parse(@raw)
+          refute_equal uri.data, @data
+        else
+          proc { URI.parse(@raw) }.must_raise(URI::InvalidURIError)
+        end
       end
 
       it "should be parsed by URI::Data.new" do
         uri = URI::Data.new(@raw)
-        assert uri.data == @data
+        assert_equal uri.data, @data
       end
 
     end
