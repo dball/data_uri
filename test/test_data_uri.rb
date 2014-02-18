@@ -91,6 +91,13 @@ describe URI::Data do
 
     end
 
+    describe "an invalid data URI" do
+      it "should raise an error" do
+        proc { URI::Data.new("This is not a data URI") }.must_raise(URI::InvalidURIError)
+        proc { URI::Data.new("data:Neither this") }.must_raise(URI::InvalidURIError)
+      end
+    end
+
   end
 
   describe "building" do
