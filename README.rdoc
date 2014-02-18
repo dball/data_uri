@@ -1,4 +1,4 @@
-= Data URI {<img src="https://travis-ci.org/dball/data_uri.png?branch=update" alt="Build Status" />}[https://travis-ci.org/dball/data_uri]
+= Data URI {<img src="https://travis-ci.org/dball/data_uri.png" alt="Build Status" />}[https://travis-ci.org/dball/data_uri]
 
 == Introduction
 
