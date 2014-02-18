@@ -1,4 +1,4 @@
-= Data URI
+= Data URI {<img src="https://travis-ci.org/porras/data_uri.png?branch=update" alt="Build Status" />}[https://travis-ci.org/porras/data_uri]
 
 == Introduction
 
