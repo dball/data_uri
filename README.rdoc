@@ -2,7 +2,7 @@
 
 == Introduction
 
-Data URIs allow resources to be embedding inside a URI. The URI::Data class
+Data URIs allow resources to be embedded inside a URI. The URI::Data class
 provides support for parsing these URIs using the normal URI.parse method.
 
 I wrote it to support embedding binary data inside JSON messages in a
