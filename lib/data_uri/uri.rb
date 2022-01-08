@@ -61,6 +61,6 @@ module URI
     end
   end
 
-  @@schemes['DATA'] = Data
+  scheme_list['DATA'] = Data
 
 end
