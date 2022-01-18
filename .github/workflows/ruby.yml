@@ -27,7 +27,7 @@ jobs:
     needs: ['rubocop']
     strategy:
       matrix:
-        ruby-version: ['2.7', '3.0', '3.1', 'head']
+        ruby-version: ['2.7', '3.0']
 
     steps:
     - name: Check out branch
