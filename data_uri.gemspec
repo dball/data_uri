@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.files = %w(README.rdoc Rakefile) + Dir.glob("lib/**/*")
 
-  s.required_ruby_version = '>= 2.7', '<= 3.0'
+  s.required_ruby_version = '>= 2.7', '< 3.1'
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest'
