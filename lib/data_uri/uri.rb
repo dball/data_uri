@@ -1,7 +1,5 @@
 module URI
-
   class Data < Generic
-
     COMPONENT = [:scheme, :opaque].freeze
     MIME_TYPE_RE = %r{^([-\w.+]+/[-\w.+]*)}.freeze
     MIME_PARAM_RE = /^;([-\w.+]+)=([^;,]+)/.freeze
@@ -61,6 +59,5 @@ module URI
     end
   end
 
-  @@schemes['DATA'] = Data
-
+  scheme_list['DATA'] = Data
 end
