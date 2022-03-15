@@ -1,2 +1,3 @@
 *.swp
 data_uri-*.gem
+Gemfile.lock
