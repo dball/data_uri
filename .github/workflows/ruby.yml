@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: '3.1'
       - run: gem install rubocop --no-doc
       - name: Run rubocop
         run: rubocop --format progress --format json --out rubocop.json
@@ -27,7 +27,7 @@ jobs:
     needs: ['rubocop']
     strategy:
       matrix:
-        ruby-version: ['2.7', '3.0']
+        ruby-version: ['2.7', '3.0', '3.1', 'head']
 
     steps:
     - name: Check out branch

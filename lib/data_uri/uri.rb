@@ -3,8 +3,8 @@
 module URI
   class Data < Generic
     COMPONENT = %i[scheme opaque].freeze
-    MIME_TYPE_RE = %r{^([-\w.+]+/[-\w.+]*)}.freeze
-    MIME_PARAM_RE = /^;([-\w.+]+)=([^;,]+)/.freeze
+    MIME_TYPE_RE = %r{^([-\w.+]+/[-\w.+]*)}
+    MIME_PARAM_RE = /^;([-\w.+]+)=([^;,]+)/
 
     attr_reader :content_type, :data
 
