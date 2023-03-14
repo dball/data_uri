@@ -61,6 +61,11 @@ module URI
     end
   end
 
-  @@schemes['DATA'] = Data
+  unless defined?(self.register_scheme)
+    def self.register_scheme(scheme, klass)
+       @@schemes[scheme] = klass
+    end
+  end
+  register_scheme 'DATA', Data
 
 end
