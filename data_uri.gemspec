@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.summary     = "A URI class for parsing data URIs as per RFC2397"
 
   s.platform = Gem::Platform::RUBY
-  s.has_rdoc = true
   s.extra_rdoc_files = ["README.rdoc"]
 
   s.require_path = 'lib'
