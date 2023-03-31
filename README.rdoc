@@ -1,4 +1,4 @@
-= Data URI {<img src="https://travis-ci.org/dball/data_uri.png" alt="Build Status" />}[https://travis-ci.org/dball/data_uri]
+= Data URI {<img src="https://github.com/aredotna/data_uri/actions/workflows/ruby.yml/badge.svg" alt="Build Status" />}[https://github.com/aredotna/data_uri/actions/workflows/ruby.yml]
 
 == Introduction
 
