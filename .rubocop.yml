@@ -1,0 +1,72 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 3.2
+  Exclude:
+    - 'Gemfile'
+    - 'data_uri.gemspec'
+  UseCache: true
+  SuggestExtensions: false
+  NewCops: enable
+
+#
+# *** Layout
+#
+Layout/LineLength:
+  Max: 120
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: space
+
+#
+# *** Metrics
+#
+Metrics/AbcSize:
+  Max: 37
+
+Metrics/BlockLength:
+  Max: 35
+  Exclude:
+    - 'test/**/*'
+
+Metrics/ClassLength:
+  Max: 200
+  Exclude:
+    - 'test/**/*'
+
+Metrics/CyclomaticComplexity:
+  Max: 13
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ModuleLength:
+  Max: 150
+
+Metrics/ParameterLists:
+  Max: 4
+
+Metrics/PerceivedComplexity:
+  Max: 13
+
+#
+# *** Naming
+#
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+  AllowedIdentifiers: [base64]
+
+Naming/MethodParameterName:
+  Enabled: false
+#
+# *** Style
+#
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/Documentation:
+  Enabled: false
