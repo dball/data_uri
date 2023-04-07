@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-SimpleCov.start
+if RUBY_ENGINE != "truffleruby"
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'minitest/autorun'
 require 'minitest/spec'
