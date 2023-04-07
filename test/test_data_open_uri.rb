@@ -1,37 +1,40 @@
-require 'data_uri'
+# frozen_string_literal: true
+
+# rubocop:disable Security/Open
+
+require_relative './test_helper'
 require 'open-uri'
-require 'data_uri/open_uri'
-require 'minitest/autorun'
-require 'minitest/spec'
 
 describe URI::Data do
-
-  describe "a valid data URI" do
-
+  describe 'a valid data URI' do
     before do
-      @base64 = "R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw=="
+      @base64 = 'R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw=='
       @uri = URI.parse("data:image/gif;base64,#{@base64}")
       @data = Base64.decode64(@base64)
     end
 
-    it "should open" do
-      @uri.open.read.must_equal @data
+    it 'should open' do
+      _(@uri.open.read).must_equal @data
     end
 
-    it "should open with a block" do
+    it 'should open with a block' do
       @uri.open do |io|
-        io.read.must_equal @data
+        _(io.read).must_equal @data
       end
     end
 
-    it "should have content_type on opened IO" do
-      @uri.open.content_type.must_equal 'image/gif'
+    it 'should have content_type on opened IO' do
+      _(@uri.open.content_type).must_equal 'image/gif'
     end
 
-    it "should open on Kernel.open" do
-      open(@uri).read.must_equal @uri.data
+    if RUBY_VERSION.to_i < 3 # no longer allowed in ruby 3+
+      it 'should open on Kernel.open' do
+        _(open(@uri).read).must_equal @uri.data
+      end
     end
 
+    it 'should open on URI.open' do
+      _(URI.open(@uri).read).must_equal @uri.data
+    end
   end
-
 end

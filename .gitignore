@@ -1,2 +1,7 @@
+coverage/
+
 *.swp
 data_uri-*.gem
+
+.ruby-version
+Gemfile.lock
