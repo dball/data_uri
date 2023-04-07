@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 module URI
-
   class Data
-
     def open
       io = StringIO.new(data)
       OpenURI::Meta.init(io)
@@ -16,7 +16,5 @@ module URI
         io
       end
     end
-
   end
-
 end
